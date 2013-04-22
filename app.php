@@ -20,5 +20,5 @@ function answer_for($question) {
   return sprintf("You asked: '%s', the answer is: '%s'\n", $question, $answer);
 }
 
-print answer_for($argv[1]);
+print answer_for($_POST['Body']);
 ?>

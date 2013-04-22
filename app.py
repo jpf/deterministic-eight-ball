@@ -1,6 +1,9 @@
-import sys
 import hashlib
 import struct
+import os
+from flask import Flask, request
+
+app = Flask(__name__)
 
 
 class Deterministic:
@@ -13,11 +16,18 @@ class Deterministic:
         return input_array[self.decision]
 
 
-def answer_for(question):
+@app.route("/sms", methods=['POST'])
+def answer_for():
+    question = request.form['Body']
     answers = ['Yes', 'No', 'Maybe', 'Perhaps']
     determine = Deterministic()
     determine.seed(question)
     answer = determine.choice(answers)
-    return "You asked: '%s', the answer is: '%s'" % (question, answer)
+    return "You asked: '%s', the answer is: '%s'\n" % (question, answer)
 
-print answer_for(sys.argv[1])
+
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5000))
+    if port == 5000:
+        app.debug = True
+    app.run(host='0.0.0.0', port=port)
