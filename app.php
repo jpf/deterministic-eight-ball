@@ -1,4 +1,5 @@
 <?php
+header("Content-Type: text/xml");
 
 class Deterministic {
   public function seed($input) {
@@ -17,7 +18,7 @@ function answer_for($question) {
   $determine = new Deterministic();
   $determine->seed($question);
   $answer = $determine->choice($answers);
-  return sprintf("You asked: '%s', the answer is: '%s'\n", $question, $answer);
+  return sprintf("<Response><Sms>You asked: '%s', the answer is: '%s'</Sms></Response>\n", $question, $answer);
 }
 
 print answer_for($_POST['Body']);

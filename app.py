@@ -1,7 +1,7 @@
 import hashlib
 import struct
 import os
-from flask import Flask, request
+from flask import Flask, request, Response
 
 app = Flask(__name__)
 
@@ -23,7 +23,10 @@ def answer_for():
     determine = Deterministic()
     determine.seed(question)
     answer = determine.choice(answers)
-    return "You asked: '%s', the answer is: '%s'\n" % (question, answer)
+    rv = ("<Response><Sms>"
+          "You asked: '%s', the answer is: '%s'"
+          "</Sms></Response>\n") % (question, answer)
+    return Response(rv, mimetype='text/xml')
 
 
 if __name__ == "__main__":
