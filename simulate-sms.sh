@@ -7,7 +7,7 @@ else
 fi
 
 if [ -z "$2" ]; then
-    URL='http://ec2-54-248-154-115.ap-northeast-1.compute.amazonaws.com:8000/sms.php'
+    URL='http://54.248.235.127:8000/sms.php'
 else
     URL=$2
 fi 
@@ -15,7 +15,7 @@ fi
 curl                                                                           \
 -d AccountSid=AC00000000000000000000000000000000                               \
 -d ApiVersion=2010-04-01                                                       \
--d Body=\"$MESSAGE\"                                                           \
+-d Body="$MESSAGE"                                                             \
 -d From=14155551212                                                            \
 -d FromCity='SAN FRANCISCO'                                                    \
 -d FromCountry=US                                                              \
