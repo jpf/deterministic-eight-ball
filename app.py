@@ -16,7 +16,7 @@ class Deterministic:
         return input_array[self.decision]
 
 
-@app.route("/sms", methods=['POST'])
+@app.route("/sms.php", methods=['POST'])
 def answer_for():
     question = request.form['Body']
     answers = ['Yes', 'No', 'Maybe', 'Perhaps']
