@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z "$1" ]; then
-    MESSAGE="Should I eat Bob's cookie?"
+    MESSAGE="Should I eat Bob's lunch?"
 else
     MESSAGE=$1
 fi
