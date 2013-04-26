@@ -7,7 +7,7 @@ else
 fi
 
 if [ -z "$2" ]; then
-    URL='http://54.248.235.127:8000/sms.php'
+    URL='http://demo.shadowproxy.org:8000/sms.php'
 else
     URL=$2
 fi 
@@ -22,7 +22,7 @@ curl                                                                           \
 -d FromState=CA                                                                \
 -d FromZip=94114                                                               \
 -d SmsMessageSid=SM00000000000000000000000000000000                            \
--d SmsSid=SM00000000000000000000000000000000                                   \
+-d SmsSid=SM11111111111111111111111111111111                                   \
 -d SmsStatus=received                                                          \
 -d To=14156973339                                                              \
 -d ToCity=''                                                                   \
